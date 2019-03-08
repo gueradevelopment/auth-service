@@ -77,7 +77,7 @@ func oauthGoogleCallback(w http.ResponseWriter, r *http.Request) {
 	}
 	http.SetCookie(w, cookieEmail)
 	http.SetCookie(w, cookieToken)
-	http.Redirect(w, r, "http://localhost:8080/#", 301)
+	http.Redirect(w, r, "http://localhost:8080/#/", 301)
 	// w.Header().Add("Content-Type", "application/json")
 	// json.NewEncoder(w).Encode(userToken)
 	// fmt.Fprintf(w, "UserInfo: %s\n", data)
