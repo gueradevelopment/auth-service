@@ -7,7 +7,8 @@ import (
 
 	"github.com/subosito/gotenv"
 
-	"github.com/gueradevelopment/auth-service/handlers"
+	"./handlers"
+	// "github.com/gueradevelopment/auth-service/handlers"
 )
 
 func init() {
