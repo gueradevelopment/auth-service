@@ -24,8 +24,6 @@ var googleOauthConfig = &oauth2.Config{
 }
 
 func oauthGoogleLogin(w http.ResponseWriter, r *http.Request) {
-	log.Println(os.Getenv("GOOGLE_CLIENT_ID"))
-	log.Println(os.Getenv("GOOGLE_CLIENT_SECRET"))
 	// Create oauthState cookie
 	oauthState := generateStateOauthCookie(w)
 	googleOauthConfig.ClientID = os.Getenv("GOOGLE_CLIENT_ID")
