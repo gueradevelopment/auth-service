@@ -52,22 +52,23 @@ func validateToken(w http.ResponseWriter, r *http.Request) {
 	tokenC, err := r.Cookie("token")
 	w.Header().Set("Access-Control-Allow-Origin", r.Header.Get("Origin"))
 	w.Header().Set("Access-Control-Allow-Credentials", "true")
+	host := os.Getenv("CLIENT_HOST")
 
 	if err != nil {
-		http.Redirect(w, r, "http://localhost:8080/#/login", 403)
+		http.Redirect(w, r, host+"/login", 403)
 		return
 	}
 	token := tokenC.Value
 
 	emailC, err := r.Cookie("email")
 	if err != nil {
-		http.Redirect(w, r, "http://localhost:8080/#/login", 403)
+		http.Redirect(w, r, host+"/login", 403)
 		return
 	}
 	email := emailC.Value
 
 	if token == "" || email == "" {
-		http.Redirect(w, r, "http://localhost:8080/#/login", 403)
+		http.Redirect(w, r, host+"/login", 403)
 		return
 	}
 
@@ -86,7 +87,7 @@ func validateToken(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		w.Write(js)
 	} else {
-		http.Redirect(w, r, "http://localhost:8080/#/login", 403)
+		http.Redirect(w, r, host+"/login", 403)
 	}
 
 }
