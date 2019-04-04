@@ -2,3 +2,4 @@
 
 - go get github.com/joho/godotenv
 - go get github.com/dgrijalva/jwt-go
+- go get golang.org/x/oauth2  
