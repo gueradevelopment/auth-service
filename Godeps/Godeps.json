@@ -1,0 +1,41 @@
+{
+	"ImportPath": "auth-service",
+	"GoVersion": "go1.10",
+	"GodepVersion": "v80",
+	"Deps": [
+		{
+			"ImportPath": "cloud.google.com/go/compute/metadata",
+			"Comment": "v0.36.0-21-g7e92b4d5",
+			"Rev": "7e92b4d51047c91ec65bab1144f1c3183d7db9d6"
+		},
+		{
+			"ImportPath": "github.com/dgrijalva/jwt-go",
+			"Comment": "v3.2.0-4-g3af4c74",
+			"Rev": "3af4c746e1c248ee8491a3e0c6f7a9cd831e95f8"
+		},
+		{
+			"ImportPath": "golang.org/x/net/context/ctxhttp",
+			"Rev": "312bce6e941fc7e152b630a8643ea239afc12ddd"
+		},
+		{
+			"ImportPath": "golang.org/x/oauth2",
+			"Rev": "e64efc72b421e893cbf63f17ba2221e7d6d0b0f3"
+		},
+		{
+			"ImportPath": "golang.org/x/oauth2/google",
+			"Rev": "e64efc72b421e893cbf63f17ba2221e7d6d0b0f3"
+		},
+		{
+			"ImportPath": "golang.org/x/oauth2/internal",
+			"Rev": "e64efc72b421e893cbf63f17ba2221e7d6d0b0f3"
+		},
+		{
+			"ImportPath": "golang.org/x/oauth2/jws",
+			"Rev": "e64efc72b421e893cbf63f17ba2221e7d6d0b0f3"
+		},
+		{
+			"ImportPath": "golang.org/x/oauth2/jwt",
+			"Rev": "e64efc72b421e893cbf63f17ba2221e7d6d0b0f3"
+		}
+	]
+}
