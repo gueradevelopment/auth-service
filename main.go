@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 
-	"auth-service/handlers"
+	"github.com/gueradevelopment/auth-service/handlers"
 )
 
 func main() {
