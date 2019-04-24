@@ -18,9 +18,11 @@ import (
 const oauthGoogleUrlAPI = "https://www.googleapis.com/oauth2/v2/userinfo?access_token="
 
 var googleOauthConfig = &oauth2.Config{
-	RedirectURL: "http://localhost:3000/auth/google/callback",
-	Scopes:      []string{"https://www.googleapis.com/auth/userinfo.email"},
-	Endpoint:    google.Endpoint,
+	RedirectURL:  "https://guera-auth.herokuapp.com/auth/google/callback",
+	ClientID:     os.Getenv("GOOGLE_CLIENT_ID"),
+	ClientSecret: os.Getenv("GOOGLE_CLIENT_SECRET"),
+	Scopes:       []string{"https://www.googleapis.com/auth/userinfo.email"},
+	Endpoint:     google.Endpoint,
 }
 
 func oauthGoogleLogin(w http.ResponseWriter, r *http.Request) {
@@ -28,6 +30,7 @@ func oauthGoogleLogin(w http.ResponseWriter, r *http.Request) {
 	oauthState := generateStateOauthCookie(w)
 	googleOauthConfig.ClientID = os.Getenv("GOOGLE_CLIENT_ID")
 	googleOauthConfig.ClientSecret = os.Getenv("GOOGLE_CLIENT_SECRET")
+	log.Println(googleOauthConfig)
 	u := googleOauthConfig.AuthCodeURL(oauthState)
 	http.Redirect(w, r, u, http.StatusTemporaryRedirect)
 }
