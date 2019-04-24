@@ -30,7 +30,6 @@ func oauthGoogleLogin(w http.ResponseWriter, r *http.Request) {
 	oauthState := generateStateOauthCookie(w)
 	googleOauthConfig.ClientID = os.Getenv("GOOGLE_CLIENT_ID")
 	googleOauthConfig.ClientSecret = os.Getenv("GOOGLE_CLIENT_SECRET")
-	log.Println(googleOauthConfig)
 	u := googleOauthConfig.AuthCodeURL(oauthState)
 	http.Redirect(w, r, u, http.StatusTemporaryRedirect)
 }
@@ -78,12 +77,10 @@ func oauthGoogleCallback(w http.ResponseWriter, r *http.Request) {
 		Path:   "/",
 		Domain: os.Getenv("CLIENT_HOST"),
 	}
+
 	http.SetCookie(w, cookieEmail)
 	http.SetCookie(w, cookieToken)
 	http.Redirect(w, r, os.Getenv("CLIENT_HOST"), 301)
-	// w.Header().Add("Content-Type", "application/json")
-	// json.NewEncoder(w).Encode(userToken)
-	// fmt.Fprintf(w, "UserInfo: %s\n", data)
 }
 
 func getUserDataFromGoogle(code string) ([]byte, error) {
