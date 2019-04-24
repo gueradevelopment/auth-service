@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/gueradevelopment/auth-service/handlers"
+	"auth-service/handlers"
 )
 
 func determineListenAddress() (string, error) {
