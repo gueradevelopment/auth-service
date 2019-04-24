@@ -18,7 +18,7 @@ import (
 const oauthGoogleUrlAPI = "https://www.googleapis.com/oauth2/v2/userinfo?access_token="
 
 var googleOauthConfig = &oauth2.Config{
-	RedirectURL:  "https://guera-auth.herokuapp.com/auth/google/callback",
+	RedirectURL:  os.Getenv("GOOGLE_REDIRECT"),
 	ClientID:     os.Getenv("GOOGLE_CLIENT_ID"),
 	ClientSecret: os.Getenv("GOOGLE_CLIENT_SECRET"),
 	Scopes:       []string{"https://www.googleapis.com/auth/userinfo.email"},
